@@ -2,7 +2,35 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 5px 10px;
+}
+
+body {
+  background-color: rgba(0, 255, 255, 0.288);
+}
+
+@for $i from 0 through 10 {
+  .p-#{$i} {
+    padding: #{$i * 0.25}rem;
+  }
+}
+
+@for $i from 0 through 10 {
+  .h-#{$i} {
+    height: #{$i * 0.25}rem;
+  }
+}
+
+@for $i from 0 through 10 {
+  .mt-#{$i} {
+    margin-top: #{$i * 0.25}rem;
+  }
+}
+
+@for $i from 0 through 10 {
+  .border-#{$i} {
+    border: #{$i * 0.25}rem solid rgba(14, 199, 199, 0.205);
+  }
 }
 
 .flex {
@@ -23,6 +51,10 @@
 
 .rounded-md {
   border-radius: 10px;
+}
+
+.border {
+  border: 1px solid rgba(14, 199, 199, 0.205);
 }
 
 button {
