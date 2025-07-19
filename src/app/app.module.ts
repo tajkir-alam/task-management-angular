@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { IncompleteTaskComponent } from './incomplete-task/incomplete-task.component';
 import { CompleteTaskComponent } from './complete-task/complete-task.component';
 import { TaskCardComponent } from './task-card/task-card.component';
+import { TaskModalComponent } from './task-modal/task-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IncompleteTaskComponent,
     CompleteTaskComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    TaskModalComponent
   ],
   imports: [
     BrowserModule
