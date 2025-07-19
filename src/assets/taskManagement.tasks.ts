@@ -1,4 +1,5 @@
-import Task from '../app/task.model';
+import Task from "src/model/task.model";
+
 
 export const tasks: Task[] = [
   {
