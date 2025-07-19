@@ -4,5 +4,6 @@
     <button class="add-btn rounded-md">Add Task</button>
   </div>
   <hr class="border h-0 p-0 mt-2" />
-  <app-incomplete-task></app-incomplete-task>
+  <app-incomplete-task [tasks]="incompleteTasks()"></app-incomplete-task>
+  <app-complete-task [tasks]="completeTasks()"></app-complete-task>
 </main>
