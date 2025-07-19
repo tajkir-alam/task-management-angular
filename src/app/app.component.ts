@@ -9,14 +9,23 @@ import Task from 'src/model/task.model';
 })
 export class AppComponent {
   title = 'task-management';
+  show = false;
 
   tasks: Task[] = tasks;
 
   incompleteTasks(): Task[] {
     return this.tasks.filter((task) => task.status === 'incompleted');
   }
-  
+
   completeTasks(): Task[] {
-    return this.tasks.filter((task)=> task.status === 'completed')
+    return this.tasks.filter((task) => task.status === 'completed');
+  }
+
+  showModal() {
+    this.show = true;
+  }
+
+  hideModal() {
+    this.show = false;
   }
 }
