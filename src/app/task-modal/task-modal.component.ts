@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import Task from 'src/model/task.model';
 
 @Component({
   selector: 'app-task-modal',
@@ -6,9 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./task-modal.component.scss'],
 })
 export class TaskModalComponent implements OnInit {
-  @Input() hideModal: any;
+  @Input() hideModal!: () => void;
+  @Input() submitForm!: (data: Task) => void;
+  @Input() selectedTask: Task | null = null;
+  
+  constructor() { }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

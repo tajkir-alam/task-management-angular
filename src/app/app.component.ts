@@ -10,6 +10,7 @@ import Task from 'src/model/task.model';
 export class AppComponent {
   title = 'task-management';
   show = false;
+  selectedTask: Task | null = null;
 
   tasks: Task[] = tasks;
 
@@ -21,11 +22,38 @@ export class AppComponent {
     return this.tasks.filter((task) => task.status === 'completed');
   }
 
-  showModal() {
+  showModal(task?: Task) {
+    this.selectedTask = task || null;
     this.show = true;
   }
 
   hideModal() {
     this.show = false;
+  }
+
+  submitForm(formData: any) {
+    if (this.selectedTask) {
+      this.tasks = this.tasks.map(task =>
+        task._id === this.selectedTask!._id ? { ...task, ...formData } : task
+      );
+    } else {
+      const newTask: Task = {
+        _id: Date.now().toString(),
+        title: formData.title,
+        description: formData.description,
+        date: formData.date,
+        status: 'incompleted',
+      };
+      this.tasks = [...this.tasks, newTask];
+    }
+    this.hideModal();
+    this.selectedTask = null;
+  }
+
+  markTaskAsComplete(task: Task) {
+    const updated = this.tasks.map(t =>
+      t._id === task._id ? { ...t, status: 'completed' as 'completed' } : t
+    );
+    this.tasks = updated;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import Task from 'src/model/task.model';
 
 @Component({
@@ -7,9 +7,19 @@ import Task from 'src/model/task.model';
   styleUrls: ['./incomplete-task.component.scss'],
 })
 export class IncompleteTaskComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-  
   @Input() tasks: Task[] = [];
+  @Output() editTask = new EventEmitter<Task>();
+  @Output() taskCompleted = new EventEmitter<Task>();
+
+  constructor() { }
+
+  ngOnInit(): void { }
+
+  handleEdit(task: Task) {
+    this.editTask.emit(task);
+  }
+
+  completeTask(task: Task) {
+    this.taskCompleted.emit(task);
+  }
 }
